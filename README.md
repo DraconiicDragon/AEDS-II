@@ -1,2 +1,2 @@
 # AEDS-II
-some daqui meu
+Repositorio da matéria Algoritmos e Estruturas de Dados II
