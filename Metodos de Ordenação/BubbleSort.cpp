@@ -2,26 +2,30 @@
 
 using namespace std;
 
-int bubbleSort(int v[], int n, int* comparacoes, int* movimentacoes) {
-    int aux;
-    for(int i = 0; i < n-1; i++) {
-        for(int j = 1; j < n-i; j++) {
-            if(v[j] < v[j-1]) {
-                aux = v[j];
-                v[j] = v[j-1];
-                v[j-1] = aux;
+void bubbleSort(auto vetor[], int tamanhoVetor, int* comparacoes, int* movimentacoes) {
+    auto aux = vetor[0];
+
+    for(int i = 0; i < tamanhoVetor-1; i++) {
+        for(int j = 1; j < tamanhoVetor-i; j++) {
+            *comparacoes += 1;
+
+            if(vetor[j] < vetor[j-1]) {
+                *movimentacoes += 1;
+                aux = vetor[j];
+                vetor[j] = vetor[j-1];
+                vetor[j-1] = aux;
             }
         }
     }
 }
 
 int main() {
-    int v[] = {5,4,3,2,1};
+    string v[] = {"eb","ea","c","b","a"};
     int n = 5;
     int comparacoes, movimentacoes;
 
     bubbleSort(v, n, &comparacoes, &movimentacoes);
-    for(int i : v){
+    for(auto i : v){
         cout << i << " ";
     }
     return 0;

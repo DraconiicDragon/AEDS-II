@@ -2,16 +2,22 @@
 
 using namespace std;
 
-void insertionSort(int v[], int n, int* comparacoes, int* movimentacoes) {
+
+void insertionSort(int vetor[], int tamanhoVetor, int* comparacoes, int* movimentacoes) {
     int aux, j;
-    for(int i = 1; i < n; i++) {
-        aux = v[i];
+
+    for(int i = 1; i < tamanhoVetor; i++) {
+        aux = vetor[i];
         j = i-1;
-        while(j >= 0 && v[j] > aux) {
-            v[j+1] = v[j];
+
+        while(j >= 0 && vetor[j] > aux) {
+            *comparacoes += 1;
+            *movimentacoes += 1;
+
+            vetor[j+1] = vetor[j];
             j--;
         }
-        v[j+1] = aux;
+        vetor[j+1] = aux;
     }
 }
 

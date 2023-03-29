@@ -2,19 +2,25 @@
 
 using namespace std;
 
-void selectionSort(int v[], int n, int* comparacoes, int* movimentacoes) {
+
+void selectionSort(int vetor[], int tamanhoVetor, int* comparacoes, int* movimentacoes) {
     int min, aux;
 
-    for(int i = 0; i < n-1; i++) {
+    for(int i = 0; i < tamanhoVetor-1; i++) {
         min = i;
-        for(int j = i+1; j < n; j++) {
-            if(v[j] < v[min]) {
+
+        for(int j = i+1; j < tamanhoVetor; j++) {
+            *comparacoes += 1;
+
+            if(vetor[j] < vetor[min]) {
                 min = j;
             }
         }
-        aux = v[i];
-        v[i] = v[min];
-        v[min] = aux;
+        movimentacoes += 1;
+        
+        aux = vetor[i];
+        vetor[i] = vetor[min];
+        vetor[min] = aux;
     }
 }
 
