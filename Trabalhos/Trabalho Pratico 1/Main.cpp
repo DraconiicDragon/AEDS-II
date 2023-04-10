@@ -1,31 +1,48 @@
-#include <iostream>
 #include "FuncoesMain.cpp"
 
-#include <fstream>
-
-using namespace std;
-
+// Faz o controle dos menus
 int main() {
 
-    char endereco[10];
-    int vetor[10];
-    
-    lerArquivo(vetor, endereco);
+    int opcaoMetodo, opcaoInstancia, tamanhoVetor;
+    string endereco;
 
-    // int vetorInt[] = {790, 2, 131, 292, 135};
-    // string vetorString[] = {"BAGAGEIRO", "NUMA", "NUCLEO", "EPIGRAFE", "CANDIDA"};
+    // Loop princinpal
+    do {
 
-    // int comparacoes = 0, movimentacoes = 0;
+        // Loop do menu de métodos, garante que um número aceito será digitado
+        do {
+            imprimirMenuMetodos();
+            cin >> opcaoMetodo;
+            system("cls");
+        }while(opcaoMetodo < 1 || opcaoMetodo > 7);
 
-    // shellSort(vetorInt, 5, &comparacoes, &movimentacoes);
-    // shellSort(vetorString, 5, &comparacoes, &movimentacoes);
+        // Sair do programa
+        if(opcaoMetodo == 7) {
+            return 0;
+        }
 
-    // for(auto i : vetorInt) {
-    //     cout << i << " ";
-    // }
-    // cout << endl;
-    // for(auto i : vetorString) {
-    //     cout << i << " ";
-    // }
+        // Loop do menu de instâncias, garante que um número aceito será digitado
+        do {
+            imprimirMenuInstancias();
+            cin >> opcaoInstancia;
+            system("cls");
+        }while(opcaoInstancia < 1 || opcaoInstancia > 23);
+
+        // Se a opção escolhida não for voltar para o menu de métodos
+        if(opcaoInstancia != 23) {
+            tamanhoVetor = definirTamanhoVetor(opcaoInstancia);
+            endereco = definirEndereco(opcaoInstancia);
+
+            cout << "Ordenando Vetor...";
+
+            // Define se é um vetor de números ou palavras
+            if(opcaoInstancia < 7) {
+                chamarMetodoEscolhidoString(opcaoMetodo, tamanhoVetor, endereco);
+            } else {
+                chamarMetodoEscolhidoInteiro(opcaoMetodo, tamanhoVetor, endereco);
+            }
+        }
+    } while(opcaoMetodo != 7);
+
     return 0;
 }
