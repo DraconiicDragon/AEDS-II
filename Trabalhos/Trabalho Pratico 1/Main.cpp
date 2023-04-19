@@ -42,6 +42,8 @@ int main() {
                 chamarMetodoEscolhidoInteiro(opcaoMetodo, tamanhoVetor, endereco);
             }
         }
+        system("pause");
+        system("cls");
     } while(opcaoMetodo != 7);
 
     return 0;
