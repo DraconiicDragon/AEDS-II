@@ -19,7 +19,7 @@ void lerArquivo(auto vetor[], string endereco, int tamanho) {
 
 void gerarResultado(double tempo, long long int comparacoes, long long int movimentacoes, string tipoArquivo, int tamanho, string nomeMetodo) {
     system("cls");
-    cout << nomeMetodo << " - " << tipoArquivo << " " << tamanho << endl;
+    cout << nomeMetodo << " - " << tipoArquivo << endl;
     cout << "Tempo: " << tempo << "s" << endl;
     cout << "Comparacoes: " << comparacoes << endl;
     cout << "Movimentacoes: " << movimentacoes << endl;

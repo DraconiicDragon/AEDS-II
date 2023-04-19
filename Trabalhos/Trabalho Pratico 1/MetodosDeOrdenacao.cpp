@@ -58,9 +58,10 @@ void selectionSort(auto vetor[], int tamanhoVetor, long long int&comparacoes, lo
 
             if(vetor[j] < vetor[min]) {
                 min = j;
+                movimentacoes += 1;
             }
         }
-        movimentacoes += 1;
+        
 
         aux = vetor[i];
         vetor[i] = vetor[min];
@@ -109,7 +110,7 @@ void quickSort(auto vetor[], int esquerda, int direita, long long int& comparaco
             comparacoes += 1;
             j--;
         }
-        comparacoes+=1;
+        
         if(i <= j) {
             movimentacoes += 1;
             aux = vetor[i];

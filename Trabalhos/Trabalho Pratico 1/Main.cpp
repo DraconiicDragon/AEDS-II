@@ -32,6 +32,7 @@ int main() {
         if(opcaoInstancia != 23) {
             tamanhoVetor = definirTamanhoVetor(opcaoInstancia);
             endereco = definirEndereco(opcaoInstancia);
+            endereco += "-" + to_string(tamanhoVetor) + ".txt";
 
             cout << "Ordenando Vetor...";
 
