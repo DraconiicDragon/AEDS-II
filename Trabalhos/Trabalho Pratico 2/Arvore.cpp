@@ -138,7 +138,57 @@ void removeItemPorNome(TipoNo* atual, string nome) {
 void imprimeArvore(TipoNo atual) {
     if(atual != NULL) {
         imprimeArvore(atual->esquerda);
-        cout << atual->item.id << " " << atual->item.nome << endl;
+        cout << "CPF: " << atual->item.id << " - Nome: " << atual->item.nome << endl;
         imprimeArvore(atual->direita);
     }
+}
+
+TipoNo pesquisaPorID(TipoNo raiz, int id) {
+    TipoNo aux = raiz;
+    bool encontrou = false;
+    while(aux != NULL) {
+        if(aux->item.id == id) {
+            encontrou = true;
+            break;
+        }
+        if(id < aux->item.id) {
+            aux = aux->esquerda;
+        }
+        if(id > aux->item.id) {
+            aux = aux->direita;
+        }
+    }
+    if(encontrou) {
+        return aux;
+    }
+    return NULL;
+}
+
+TipoNo pesquisaPorNome(TipoNo raiz, string nome) {
+    TipoNo aux = raiz;
+    bool encontrou = false;
+    while(aux != NULL) {
+        if(aux->item.nome == nome) {
+            encontrou = true;
+            break;
+        }
+        if(nome < aux->item.nome) {
+            aux = aux->esquerda;
+        }
+        if(nome > aux->item.nome) {
+            aux = aux->direita;
+        }
+    }
+    if(encontrou) {
+        return aux;
+    }
+    return NULL;
+}
+
+void imprimeItem(Item item) {
+    cout << " Informacoes do Funcionario" << endl;
+    cout << "----------------------------" << endl;
+    cout << "CPF: " << item.id << endl;
+    cout << "Nome: " << item.nome << endl;
+    system("pause");
 }
